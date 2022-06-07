@@ -1,0 +1,14 @@
+.img-circle {
+    max-height: 50px;
+}
+
+#button {
+    color: inherit;
+    text-decoration: inherit;
+    /* &:link,
+    &:hover {
+      color: inherit;
+      text-decoration: inherit;
+    } */
+
+}
