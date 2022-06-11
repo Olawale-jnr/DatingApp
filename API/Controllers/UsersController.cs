@@ -45,7 +45,7 @@ namespace API.Controllers
             //var users = await _userRepository.GetUsersAsync();
             //var usersToReturn = _mapper.Map<IEnumerable<MemberDto>>(users);
             //return Ok(usersToReturn);
-            userParams.CurrentUserName = User.GetUsername();
+            userParams.CurrentUserName = user.UserName;
             if (string.IsNullOrEmpty(userParams.Gender))
                 userParams.Gender = user.Gender == "male" ? "female" : "male";
 
@@ -56,7 +56,6 @@ namespace API.Controllers
         }
 
         //api/users/id e.g 1,2,3 e.t.c
-        //[Authorize]
         [HttpGet("{username}", Name = "GetUser")]
         public async Task<ActionResult<MemberDto>> GetUser(string username)
         {
