@@ -18,6 +18,8 @@ namespace API.Data
         //Generates a table called Users, Can be anything of choice
         public DbSet<UserLike> Likes { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<Group> Groups { get; set; }
+        public DbSet<Connection> Connections { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
