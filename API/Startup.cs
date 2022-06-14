@@ -53,6 +53,7 @@ namespace API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
+                //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
 
@@ -68,11 +69,15 @@ namespace API
             
             app.UseAuthorization();
 
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
                 endpoints.MapHub<PresenceHub>("hubs/presence");
                 endpoints.MapHub<MessageHub>("hubs/message");
+                endpoints.MapFallbackToController("Index", "Fallback");
 
             });
         }
